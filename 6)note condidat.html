@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Statut du candidat</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+    }
+    .container {
+        max-width: 400px;
+        margin: 0 auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: #f9f9f9;
+    }
+    input[type="number"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+    }
+    button {
+        width: 100%;
+        padding: 10px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    button:hover {
+        background-color: #0056b3;
+    }
+    .result {
+        margin-top: 10px;
+        font-weight: bold;
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Statut du candidat</h2>
+    <input type="number" id="average" placeholder="Moyenne">
+    <button onclick="checkStatus()">Vérifier</button>
+    <div class="result" id="result"></div>
+</div>
+
+<script>
+    function checkStatus() {
+        var average = parseFloat(document.getElementById('average').value);
+        var status;
+
+        if (average < 10) {
+            status = "Recalé";
+        } else if (average >= 10 && average < 12) {
+            status = "Reçu";
+        } else if (average >= 12) {
+            status = "Reçu avec mention";
+        } else {
+            status = "Moyenne invalide";
+        }
+
+        document.getElementById('result').innerText = "Statut du candidat : " + status;
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nombre de jours dans un mois</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+    }
+    .container {
+        max-width: 400px;
+        margin: 0 auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: #f9f9f9;
+    }
+    input[type="number"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+    }
+    button {
+        width: 100%;
+        padding: 10px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    button:hover {
+        background-color: #0056b3;
+    }
+    .result {
+        margin-top: 10px;
+        font-weight: bold;
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Nombre de jours dans un mois</h2>
+    <input type="number" id="month" placeholder="Numéro du mois (entre 1 et 12)">
+    <button onclick="getNumberOfDays()">Obtenir</button>
+    <div class="result" id="result"></div>
+</div>
+
+<script>
+    function getNumberOfDays() {
+        var monthNumber = parseInt(document.getElementById('month').value);
+        var daysInMonth;
+
+        switch(monthNumber) {
+            case 1: case 3: case 5: case 7: case 8: case 10: case 12:
+                daysInMonth = 31;
+                break;
+            case 4: case 6: case 9: case 11:
+                daysInMonth = 30;
+                break;
+            case 2:
+                daysInMonth = 28;
+                break;
+            default:
+                daysInMonth = "Mois invalide";
+        }
+
+        document.getElementById('result').innerText = "Nombre de jours dans le mois : " + daysInMonth;
+    }
+</script>
+
+</body>
+</html>

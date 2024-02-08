@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calcul du périmètre et de l'aire d'un carré</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+  }
+  input[type="number"] {
+    width: 100px;
+    padding: 5px;
+    margin-bottom: 10px;
+  }
+  button {
+    padding: 8px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  #resultat {
+    margin-top: 20px;
+  }
+</style>
+</head>
+<body>
+  <h2>Calcul du périmètre et de l'aire d'un carré</h2>
+  <label for="cote">Entrez la longueur du côté du carré :</label>
+  <input type="number" id="cote" min="0">
+  <br>
+  <button onclick="calculer()">Calculer</button>
+  <div id="resultat"></div>
+
+  <script>
+    function calculer() {
+      // Récupérer la valeur du côté du carré
+      var cote = parseFloat(document.getElementById('cote').value);
+      
+      // Vérifier si la valeur est valide
+      if (!isNaN(cote) && cote > 0) {
+        // Calculer le périmètre du carré
+        var perimetre = 4 * cote;
+        
+        // Calculer l'aire du carré
+        var aire = cote * cote;
+        
+        // Afficher les résultats
+        document.getElementById('resultat').innerHTML = "<p>Périmètre : " + perimetre + "</p><p>Aire : " + aire + "</p>";
+      } else {
+        // Afficher un message d'erreur si la valeur n'est pas valide
+        document.getElementById('resultat').innerHTML = "<p>Veuillez entrer une valeur numérique positive pour la longueur du côté.</p>";
+      }
+    }
+  </script>
+</body>
+</html>

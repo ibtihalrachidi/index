@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Convertir des secondes en durée</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+    }
+    .container {
+        max-width: 400px;
+        margin: 0 auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: #f9f9f9;
+    }
+    input[type="number"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+    }
+    button {
+        width: 100%;
+        padding: 10px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    button:hover {
+        background-color: #0056b3;
+    }
+    .result {
+        margin-top: 10px;
+        font-weight: bold;
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Convertir des secondes en durée</h2>
+    <input type="number" id="totalSeconds" placeholder="Nombre de secondes">
+    <button onclick="convertToDuration()">Convertir</button>
+    <div class="result" id="result"></div>
+</div>
+
+<script>
+    function convertToDuration() {
+        var totalSeconds = parseInt(document.getElementById('totalSeconds').value) || 0;
+        
+        var hours = Math.floor(totalSeconds / 3600);
+        var remainingSeconds = totalSeconds % 3600;
+        var minutes = Math.floor(remainingSeconds / 60);
+        var seconds = remainingSeconds % 60;
+        
+        document.getElementById('result').innerText = "Durée : " + hours + " heures, " + minutes + " minutes, " + seconds + " secondes";
+    }
+</script>
+
+</body>
+</html>

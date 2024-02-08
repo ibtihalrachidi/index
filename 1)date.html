@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Affichage de la date</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+  }
+  #date {
+    font-size: 24px;
+    margin-top: 50px;
+  }
+</style>
+</head>
+<body>
+  <div id="date">
+    <!-- Le script JavaScript insérera la date ici -->
+  </div>
+
+  <script>
+    // Obtenir la date d'aujourd'hui
+    var aujourdhui = new Date();
+    
+    // Formater la date
+    var jour = ('0' + aujourdhui.getDate()).slice(-2);
+    var mois = ('0' + (aujourdhui.getMonth() + 1)).slice(-2);
+    var annee = aujourdhui.getFullYear();
+    var date_formattee = jour + '/' + mois + '/' + annee;
+
+    // Afficher la date dans l'élément HTML
+    document.getElementById('date').innerHTML = "On est le " + date_formattee;
+  </script>
+</body>
+</html>
